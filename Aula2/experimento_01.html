@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimento 01 - Aula 2</title>
+</head>
+<body>
+    <div>
+        <h1>Título nível 1</h1>
+        <p>Teste 1</p>
+        <p>Teste 2</p>
+        <p class="paragrafo">Teste 3 </p>
+        <p id="titulo">Teste 4</p>
+    </div>
+    <script type="text/javascript">
+        var elementos_p = document.getElementsByTagName('p')
+        console.log(elementos_p);
+        var p_1 = elementos_p[0];
+        var p_2 = elementos_p[1];
+        p_1.style.background="red";
+        p_1.style.fontSize="20pt";
+        p_2.style.background="yellow";
+        p_2.innerText = "O VITOR É BRABO DEMAIS!";
+        document.write(p_2.innerHTML);
+        document.write('<h2>GALERA TOP </h2>' );
+        var elementos_h2 = document.getElementsByTagName('h2')
+        elementos_h2[0].style.background="blue";
+
+        var p_3 = document.getElementsByClassName("paragrafo")[0];
+        p_3.style.background="green";
+        p_3.style.color="#fff";
+
+        var p_4 = document.getElementById('titulo');
+        p_4.style.background="purple";
+        p_4.style.fontSize="40pt";
+    </script>
+</body>
+</html>

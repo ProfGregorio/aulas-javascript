@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimento 03 - Aula 2 - Manipulando Eventos</title>
+    <style>
+        #area{
+            border: 5px solid black;
+            width: 200px;
+            height: 200px;
+            background: red;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        
+        }
+        #area p{
+            color: white;
+            font-size: 20pt;
+            text-transform: capitalize;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="area" >
+        <p>teste</p>
+    </div>
+    <script type="text/javascript">
+        var tag_div = window.document.querySelector('#area');
+        var tag_p = tag_div.querySelectorAll('p')[0]        
+        tag_div.addEventListener('mouseenter', entrar);
+        tag_div.addEventListener('mouseleave', sair);
+        tag_p.addEventListener('click', clicar);
+        function clicar(){
+            var tag_div = window.document.querySelector('#area');
+            var tag_p = tag_div.querySelectorAll('p')[0]
+            tag_p.innerText="Teste";
+            window.document.querySelector('#area').style.background = "red";
+
+            //tag_p.style.color="yellow";
+            tag_p.style.cursor = "pointer";
+
+            if (tag_p.style.color=="yellow"){
+                tag_p.style.color = "white"
+            }else{
+                tag_p.style.color = "yellow";
+            }
+        }
+        function entrar(){
+            window.document.querySelector('#area').style.background = "blue";
+            var tag_p = window.document.querySelectorAll('#area p')[0]
+            tag_p.innerText="ENTROU";
+        }
+        function sair(){
+            window.document.querySelector('#area').style.background = "green";
+            var tag_p = window.document.querySelectorAll('#area p')[0]
+            tag_p.innerText="SAIU";
+        }
+    </script>
+</body>
+</html>
