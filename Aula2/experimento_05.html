@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimento 05 - Aula 2</title>
+</head>
+<body>
+    <div>
+        <button onclick="ligar();">Ligar a lâmpada</button>
+        <img id="lampada" src="pic_bulboff.gif" style="width:100px">
+        <button onclick="desligar();">Desligar a lâmpada</button>
+    </div>
+    <script type="text/javascript">
+        function ligar(){
+            document.getElementById('lampada').src='pic_bulbon.gif'
+        }
+        function desligar(){
+            document.getElementById('lampada').src='pic_bulboff.gif'    
+        }
+    </script>
+</body>
+</html>
