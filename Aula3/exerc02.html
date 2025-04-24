@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício: 01 - Vamos Contar</title>
+    <style>
+        body{
+            background-color: aqua; /*Comentário em CSS*/
+            font:normal 25pt Arial;
+        }
+        header{
+            color:white;
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.363);
+        }
+        footer{
+            color:white;
+            text-align: center;
+            font-style: italic;
+        }
+        h1{
+            color: brown;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+            <h1>Vamos Contar</h1>
+    </header>
+
+    <section>
+        <div id="dados">
+            <p>Início: <input type="number" name="inicio" id="txtInicio" placeholder="Digite o número que vai iniciar a contagem"> </p>
+            <p>Fim: <input type="number" name="fim" id="txtFim" placeholder="Digite o número que vai finalizar a contagem"> </p>
+            <p>Passo: <input type="number" name="passo" id="txtPasso" placeholder="Digite o número do passo para a contagem" min="1"></p>
+            <p><input type="button" value="Contar" onclick="contar();"></p>
+        </div>
+        <div id="res">
+            Preparando a contagem...
+        </div>
+    </section>
+    <footer>
+        <p>Aulas de JavaScript - 3DS</p>
+    </footer>
+    
+    <script type="text/javascript">
+        function contar(){
+            var entrada_inicio = window.document.getElementById("txtInicio");
+            var entrada_fim = window.document.getElementById("txtFim");
+            var entrada_passo = window.document.getElementById("txtPasso");
+            var res = window.document.getElementById("res");
+
+            if(entrada_inicio.value.length == 0 || entrada_fim.value.length == 0 || entrada_passo.value.length == 0){
+                res.innerHTML="Impossível Contar :/";
+                //window.alert("[ERRO] - Faltam Dados");
+            }else{
+                
+                res.innerHTML= 'Contando: ';
+                let i = Number(entrada_inicio.value);
+                let f = Number(entrada_fim.value);
+                let p = Number(entrada_passo.value);
+                if(p<=0){
+                    p=1;
+                }
+                if (i<f){
+                    for (let c=i; c<=f ;c+=p){
+                        res.innerHTML+= `${c} `
+                    }   
+                }else{
+                    for (let c=i; c>=f ;c-=p){
+                    res.innerHTML+= `${c} `
+                }
+                }
+                
+            }
+            
+
+        }
+    </script>
+</body>
+</html>

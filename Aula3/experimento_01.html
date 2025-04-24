@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação baseado na hora</title>
+    <style>
+        body{
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <label for="inputHora">Digite uma hora para alterar o a hora oficial:</label><br/>
+    <input type="number" style="width: 190px;" id="inputHora" onchange="verificarHora() " placeholder="Coloque aqui as horas (24h)" />
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+    <script type="text/javascript">
+        verificarHora();
+        function verificarHora(){            
+            var elemento_h1 = document.getElementsByTagName('h1')[0]
+            var elemento_h2 = document.getElementsByTagName('h2')[0]
+            var elemento_h3 = document.getElementsByTagName('h3')[0]
+
+            var body = document.getElementsByTagName('body')[0]
+            
+            var entrada_hora = document.getElementById('inputHora')
+
+            var data = new Date()
+            var hora = 0;
+            //var hora = data.getHours()
+            if (entrada_hora.value.length==0){
+                hora = data.getHours()
+            }else{
+                hora = entrada_hora.value
+            }
+        
+
+            var min = data.getMinutes()
+            elemento_h2.innerHTML=`<p>Agora são ${hora}:${min}</p>`
+            if (hora >= 7 && hora <= 12) {
+                elemento_h1.innerHTML="Bom dia!";
+                body.style.backgroundColor='rgb(222, 94, 2)';
+            } else if (hora > 12 && hora <= 18) {
+                elemento_h1.innerHTML="Boa tarde!";
+                body.style.backgroundColor='rgb(216,150,214)';
+            } else {
+                elemento_h1.innerHTML="Boa noite!";
+                body.style.backgroundColor='rgb(17, 68, 88)';      
+            }
+            elemento_h3.innerHTML=`Hoje é ${data.getDay()}.`
+
+        }
+        
+
+
+    </script>
+</body>
+</html>
