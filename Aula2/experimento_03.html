@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experimento 03 - Aula 2 - Manipulando Eventos</title>
     <style>
-        #area{
+        #area, #area2{
             border: 5px solid black;
             width: 200px;
             height: 200px;
@@ -16,7 +16,7 @@
             align-items: center;
         
         }
-        #area p{
+        #area p, #area2 p{
             color: white;
             font-size: 20pt;
             text-transform: capitalize;
@@ -28,10 +28,17 @@
     <div id="area" >
         <p>teste</p>
     </div>
+    <div id="area2" onmouseenter="entrar('area2');">
+        <p>teste</p>
+    </div>
+
+
     <script type="text/javascript">
         var tag_div = window.document.querySelector('#area');
+        var tag_div2 = window.document.getElementById("area2")
+
         var tag_p = tag_div.querySelectorAll('p')[0]        
-        tag_div.addEventListener('mouseenter', entrar);
+        tag_div.addEventListener('mouseenter', entrar("area"));
         tag_div.addEventListener('mouseleave', sair);
         tag_p.addEventListener('click', clicar);
         function clicar(){
@@ -49,9 +56,10 @@
                 tag_p.style.color = "yellow";
             }
         }
-        function entrar(){
-            window.document.querySelector('#area').style.background = "blue";
-            var tag_p = window.document.querySelectorAll('#area p')[0]
+        function entrar(nomeID){
+            console.log("TESTE RECEBIMENTO DE PARÂMETROS: ", nomeID);
+            window.document.querySelector(`#${nomeID}`).style.background = "blue";
+            var tag_p = window.document.querySelectorAll(`#${nomeID} p`)[0]
             tag_p.innerText="ENTROU";
         }
         function sair(){
